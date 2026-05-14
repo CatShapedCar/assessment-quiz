@@ -42,7 +42,20 @@ while True:
         else:
             print("Hello, " + name +"")
             break
-print("Are you ready for the questions?")
+print("How many questions would you like?")
+while True:
+    try:
+        questionsamount = int(input())
+        if questionsamount =< 8
+            print("Understood, you will be asked",questionsamount,"questions.")
+            break
+        elif questionsamount < 1:
+            print("Too little questions sorry.")
+        else:
+            print("Too many questions to process, apologies.")
+    except ValueError:
+            print("Please use a number, and not a string.")
+    print("Are you ready for the questions?")
 errorcounter = 0
 #resetting the error counter to be kind
 print("1. Yes")
@@ -74,11 +87,11 @@ errorcounter = 0
 #TODO: CHANGE THE QUESTIONS WHEN IT SAYS WHAT QUSTION NUMBER IT IS TO QUESTIONSANSWERED AND NOT QUESTIONRANDOMIZE
 #yay i did it 11pm sunday 10/5/26
 #add more questions probably
-while questionsanswered < 8:
+while questionsanswered < questionsamount:
     #TODO: fix this shenanigans
     #i dont know if this makes much sense but it works
-    questionrandomize = random.randint(1, 8)
-    if questionrandomize != 8:
+    questionrandomize = random.randint(1, questionsamount)
+    if questionrandomize != questionsamount:
         questionrandomize += 1
     else:
         questionrandomize = 1
@@ -380,12 +393,12 @@ print("Thank you for playing!")
 print("You ended with a score of", score,"!")
 percentage = 0
 # initializing it first
-percentage = 100 / 8
+percentage = 100 / questionsamount
 percentage = percentage * score
 roundedpercent = round(percentage, 1)
 print("That's",roundedpercent,"%.")
 time.sleep(1)
-if score == 8:
+if percentage == 100:
     print("Congratulations on getting all of them right!")
     print("Watch this")
     webbrowser.open('https://tenor.com/view/confetti-gif-27343800')
@@ -393,17 +406,14 @@ if score == 8:
     print("Hopefully that worked")
     time.sleep(1)
     print("If it didnt, it was meant to open a link for you.")
-elif score >= 6:
+elif percentage > 100:
+    print("How did you get over 100%?")
+    print("Oh well, unfortunate error handling.")
+elif percentage >= 75:
     print("Good job on getting so many correct!")
-elif score >= 4:
+elif percentage >= 50:
     print("Congrats on your score!")
-elif score == 3:
-    print("Congrats on your score!")
-    print("If you would like, try getting a higher score next time!")
-elif score == 2:
-    print("Congrats on your score!")
-    print("If you would like, try getting a higher score next time!")
-elif score == 1:
+elif score >= 0:
     print("Congrats on your score!")
     print("If you would like, try getting a higher score next time!")
 else:
