@@ -46,16 +46,16 @@ print("How many questions would you like?")
 while True:
     try:
         questionsamount = int(input())
-        if questionsamount =< 8
+        if questionsamount < 1:
+            print("Too little questions sorry.")
+        elif questionsamount <= 8:
             print("Understood, you will be asked",questionsamount,"questions.")
             break
-        elif questionsamount < 1:
-            print("Too little questions sorry.")
         else:
             print("Too many questions to process, apologies.")
     except ValueError:
             print("Please use a number, and not a string.")
-    print("Are you ready for the questions?")
+print("Are you ready for the questions?")
 errorcounter = 0
 #resetting the error counter to be kind
 print("1. Yes")
