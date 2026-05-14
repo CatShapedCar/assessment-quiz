@@ -18,7 +18,8 @@ answer8 = 0
 questionrandomize = 0
 questionsanswered = 0
 score = 0
-#initializing stupid variables for this stupid idiot randomizing question system its so bad grr
+#initializing variables
+#probably a better way of doing this but oh well it works
 
 print("Hello !")
 print("Welcome to the quizshow.")
@@ -75,16 +76,12 @@ errorcounter = 0
 #add more questions probably
 while questionsanswered < 8:
     #TODO: fix this shenanigans
-    #this is really ineffective but it works so im very happy yayyy
+    #i dont know if this makes much sense but it works
     questionrandomize = random.randint(1, 8)
     if questionrandomize != 8:
         questionrandomize += 1
     else:
         questionrandomize = 1
-    #this is so bad gosh
-    #FINALLY FIXED THE SYSTEM IM SO HAPPY FINALLY
-    #
-    #i could maybe just add enough questions that it doesnt matter but thats lazy
     if questionrandomize == 1:
         if answer1 != 0:
             pass
@@ -114,7 +111,7 @@ while questionsanswered < 8:
                         break
                     else:
                         print("Please enter a valid number.")
-                except ValueError:
+                except ValueError: #errorhandling for strings instead of numbers 
                     print("Please enter a number input, no letters or special characters.")
                     errorcounter = errorcounter + 1
                     if errorcounter > 2:
@@ -422,7 +419,7 @@ else:
         t.forward(100)
         t.right(90)
         turtleturns += 1
-    turtle.done()
+    turtle.done() #turtle
 print("Anyway, thank you for playing!")
 print()
 print("------")
