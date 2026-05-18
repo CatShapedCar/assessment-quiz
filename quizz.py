@@ -5,8 +5,6 @@ import webbrowser
 # use webbrowser.open('https://www.example.com')
 import random
 #lets you randomize stuff
-import turtle
-#discipline turtle for people who get EVERYTHING wrong.
 answer1 = 0
 answer2 = 0
 answer3 = 0
@@ -18,6 +16,8 @@ answer8 = 0
 questionrandomize = 0
 questionsanswered = 0
 score = 0
+questionslist = [0]
+answerslist = [0]
 #initializing variables
 #probably a better way of doing this but oh well it works
 
@@ -53,6 +53,8 @@ while True:
             break
         else:
             print("Too many questions to process, apologies.")
+            if questionsamount < 10:
+                print("Yeah I know it can't even handle 10 questions oh well")
     except ValueError:
             print("Please use a number, and not a string.")
 print("Are you ready for the questions?")
@@ -84,17 +86,10 @@ print()
 errorcounter = 0
 
 #this is where the questions start so nice
-#TODO: CHANGE THE QUESTIONS WHEN IT SAYS WHAT QUSTION NUMBER IT IS TO QUESTIONSANSWERED AND NOT QUESTIONRANDOMIZE
-#yay i did it 11pm sunday 10/5/26
-#add more questions probably
+#TODO: Add list system and list off question answer history at the end
+#Wow i dont know how to use lists awesome
 while questionsanswered < questionsamount:
-    #TODO: fix this shenanigans
-    #i dont know if this makes much sense but it works
-    questionrandomize = random.randint(1, questionsamount)
-    if questionrandomize != questionsamount:
-        questionrandomize += 1
-    else:
-        questionrandomize = 1
+    questionrandomize = random.randint(1, 8)
     if questionrandomize == 1:
         if answer1 != 0:
             pass
@@ -110,17 +105,21 @@ while questionsanswered < questionsamount:
                     answer1 = int(input())
                     if answer1 == 1:
                         print("Sorry, New York isn't the capital.")
+                        answerslist.append(0)
                         break
                     elif answer1 == 2:
                         print("Correct! Washington D.C is in fact the capital of the United States.")
                         score = score + 1
                         print("Your score is now", score,"!")
+                        answerslist.append(1)
                         break
                     elif answer1 == 3:
                         print("Sorry, Illinois isn't the capital.")
+                        answerslist.append(0)
                         break
                     elif answer1 == 4:
                         print("Sorry, California isn't the capital.")
+                        answerslist.append(0)
                         break
                     else:
                         print("Please enter a valid number.")
@@ -133,6 +132,7 @@ while questionsanswered < questionsamount:
             print()
             errorcounter = 0
             questionsanswered = questionsanswered + 1
+            questionslist.append(1)
     if questionrandomize == 2:
         if answer2 != 0:
             pass
@@ -150,15 +150,19 @@ while questionsanswered < questionsamount:
                         print("Correct! Python is this program's language.")
                         score = score + 1
                         print("Your score is now", score,"!")
+                        answerslist.append(1)
                         break
                     elif answer2 == 2:
                         print("Sorry, C++ isn't the correct coding language.")
+                        answerslist.append(0)
                         break
                     elif answer2 == 3:
                         print("Sorry, Javascript isn't the correct coding language.")
+                        answerslist.append(0)
                         break
                     elif answer2 == 4:
                         print("Sorry, Unity isn't the correct coding language.")
+                        answerslist.append(0)
                         break
                     else:
                         print("Please enter a valid number.")
@@ -172,6 +176,7 @@ while questionsanswered < questionsamount:
             print()
             errorcounter = 0
             questionsanswered = questionsanswered + 1
+            questionslist.append(2)
     if questionrandomize == 3:
         if answer3 != 0:
             pass
@@ -187,17 +192,21 @@ while questionsanswered < questionsamount:
                     answer3 = int(input())
                     if answer3 == 1:
                         print("Yeah not quite")
+                        answerslist.append(0)
                         break
                     elif answer3 == 2:
                         print("Correct!! The Great Wall of China is, in fact, in China.")
                         score = score + 1
                         print("Your score is now", score,"!")
+                        answerslist.append(1)
                         break
                     elif answer3 == 3:
                         print("Sorry, the Great Wall isn't in Nigeria.")
+                        answerslist.append(0)
                         break
                     elif answer3 == 4:
                         print("I don't think the great wall is in America, sorry.")
+                        answerslist.append(0)
                         break
                     else:
                         print("Please enter a valid number.")
@@ -209,6 +218,7 @@ while questionsanswered < questionsamount:
             print()
             errorcounter = 0
             questionsanswered = questionsanswered + 1
+            questionslist.append(3)
     if questionrandomize == 4:
         if answer4 != 0:
             pass
@@ -224,17 +234,21 @@ while questionsanswered < questionsamount:
                     answer4 = int(input())
                     if answer4 == 1:
                         print("Sorry, 13 * 19 isn't 303.")
+                        answerslist.append(0)
                         break
                     elif answer4 == 2:
                         print("Sorry, 13 * 19 isn't 281.")
+                        answerslist.append(0)
                         break
                     elif answer4 == 3:
                         print("Sorry, 13 * 19 isn't 219.")
+                        answerslist.append(0)
                         break
                     elif answer4 == 4:
                         print("Correct, 13 * 19 is 247.")
                         score = score + 1
                         print("Your score is now", score,"!")
+                        answerslist.append(1)
                         break
                     else:
                         print("Please enter a valid number, as in 1 - 4. Please don't enter the actual number.")
@@ -246,6 +260,7 @@ while questionsanswered < questionsamount:
             print()
             errorcounter = 0
             questionsanswered = questionsanswered + 1
+            questionslist.append(4)
     if questionrandomize == 5:
         if answer5 != 0:
             pass
@@ -261,17 +276,21 @@ while questionsanswered < questionsamount:
                     answer5 = int(input())
                     if answer5 == 1:
                         print("Sorry, Mars isn't the smallest planet.")
+                        answerslist.append(0)
                         break
                     elif answer5 == 2:
                         print("Sorry, Earth is not the smallest planet.")
+                        answerslist.append(0)
                         break
                     elif answer5 == 3:
                         print("Correct, Mercury is the smallest planet in our Solar System!")
                         score = score + 1
                         print("Your score is now", score,"!")
+                        answerslist.append(1)
                         break
                     elif answer5 == 4:
                         print("Wrong, Uranus is not the smallest planet.")
+                        answerslist.append(0)
                         break
                     else:
                         print("Please enter a valid number, as in 1 - 4. Please don't enter the actual number.")
@@ -283,6 +302,7 @@ while questionsanswered < questionsamount:
             print()
             errorcounter = 0
             questionsanswered = questionsanswered + 1
+            questionslist.append(5)
     if questionrandomize == 6:
         if answer6 != 0:
             pass
@@ -298,17 +318,21 @@ while questionsanswered < questionsamount:
                     answer6 = int(input())
                     if answer6 == 1:
                         print("Lake Toba is not the largest volcano.")
+                        answerslist.append(0)
                         break
                     elif answer6 == 2:
                         print("Yellowstone is not the largest volcano.")
+                        answerslist.append(0)
                         break
                     elif answer6 == 3:
                         print("Sorry, Rangitoto is not the largest volcano.")
+                        answerslist.append(0)
                         break
                     elif answer6 == 4:
                         print("Correct, Mauna Loa is the world's largest volcano, located in Hawaii")
                         score = score + 1
                         print("Your score is now", score,"!")
+                        answerslist.append(1)
                         break
                     else:
                         print("Please enter a valid number.")
@@ -320,6 +344,7 @@ while questionsanswered < questionsamount:
             print()
             errorcounter = 0
             questionsanswered = questionsanswered + 1
+            questionslist.append(6)
     if questionrandomize == 7:
         if answer7 != 0:
             pass
@@ -337,15 +362,19 @@ while questionsanswered < questionsamount:
                         print("Correct, Billie Jean currently has 2,714,559,108 plays.")
                         score = score + 1
                         print("Your score is now", score,"!")
+                        answerslist.append(1)
                         break
                     elif answer7 == 2:
                         print("Wrong, Billie Jean currently has 2,714,559,108 plays, not 3,101,271,399")
+                        answerslist.append(0)
                         break
                     elif answer7 == 3:
                         print("Sorry, Billie Jean doesn't have 1,890,712,171 plays currently.")
+                        answerslist.append(0)
                         break
                     elif answer7 == 4:
                         print("Sorry, but Billie Jean does not currently have 2,420,192,091 plays.")
+                        answerslist.append(0)
                         break
                     else:
                         print("Please enter a valid number.")
@@ -357,6 +386,7 @@ while questionsanswered < questionsamount:
             print()
             errorcounter = 0
             questionsanswered = questionsanswered + 1
+            questionslist.append(7)
     if questionrandomize == 8:
         if answer8 != 0:
             pass
@@ -372,12 +402,15 @@ while questionsanswered < questionsamount:
                         print("Correct.")
                         score = score + 1
                         print("Your score is now", score,"!")
+                        answerslist.append(1)
                         break
                     elif answer8 == 2:
                         print("There is 2 answers. But the answer for 2 is 1.")
+                        answerslist.append(0)
                         break
                     else:
                         print("Yeah, that's really off.")
+                        answerslist.append(0)
                         break
                 except ValueError:
                     print("Please enter a number input, no letters or special characters.")
@@ -387,6 +420,7 @@ while questionsanswered < questionsamount:
             print()
             errorcounter = 0
             questionsanswered = questionsanswered + 1
+            questionslist.append(8)
 time.sleep(1)
 print()
 print("Thank you for playing!")
@@ -397,6 +431,20 @@ percentage = 100 / questionsamount
 percentage = percentage * score
 roundedpercent = round(percentage, 1)
 print("That's",roundedpercent,"%.")
+#Why doesnt this work ?
+#I will fix it someday
+try:
+    if answerslist.index[0] == 1:
+        if questionslist.index[0] == 1:
+            print("First answer - Correct")
+        else:
+            print("Ither answer - Correct")
+    elif answerslist.index[0] == 0:
+        print("Wrong answer :(")
+    else:
+        print("Somehow reached error handling")
+except TypeError:
+    print("You just reached ultra error handling wow")
 time.sleep(1)
 if percentage == 100:
     print("Congratulations on getting all of them right!")
@@ -420,16 +468,6 @@ else:
     print("Well, 0 is unfortunate but good job regardless.")
     print("Sorry if that sounded rude")
     time.sleep(1)
-    print("I'll bring the turtle for you.")
-    time.sleep(1)
-    t = turtle.Turtle()
-    t.speed(2)
-    turtleturns = 0
-    while turtleturns < 4:
-        t.forward(100)
-        t.right(90)
-        turtleturns += 1
-    turtle.done() #turtle
 print("Anyway, thank you for playing!")
 print()
 print("------")
